@@ -1,0 +1,538 @@
+:root{
+  --bg:#F4F4F4;
+  --card:#FFFFFF;
+  --text:#111111;
+  --muted:#6B6B6B;
+
+  --pad:30px;
+  --gap:18px;
+  --radius:22px;
+
+  --border:#CFCFCF;
+
+  --blue:#007AFF;
+  --wa:#3FAE57;
+
+  --shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family: "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+}
+
+a{ color:inherit; text-decoration:none; }
+
+/* Layout */
+.container{
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 22px var(--pad) 30px;
+}
+.stickybar{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(244,244,244,.85);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(0,0,0,.08);
+  z-index: 50;
+}
+.stickyinner{
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 0 var(--pad);
+  display:flex;
+  gap:10px;
+}
+.stickyinner a{ flex:1; }
+
+
+.stack{
+  display:flex;
+  flex-direction:column;
+  gap: var(--gap);
+}
+
+/* Titles */
+.h1{
+  font-size: 40px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-align:center;
+  margin: 10px 0 18px;
+}
+
+.h2{
+  font-size: 28px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-align:center;
+  margin: 8px 0 16px;
+}
+
+.section-title{
+  text-align:center;
+  font-weight: 800;
+  margin: 18px 0 10px;
+}
+
+/* Cards */
+.card{
+  background:var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+.hero-card{ border-radius: 24px; }
+
+.card-media{
+  width:100%;
+  aspect-ratio: 3 / 4;
+  background:#EEE;
+  display:block;
+  object-fit:cover;
+}
+
+.card-title{
+  padding: 16px 16px 18px;
+  text-align:center;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Buttons */
+.btnbar{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top: 14px;
+}
+
+.btn{
+  width:100%;
+  height:54px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,.00);
+  background:#fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,.05);
+}
+
+.btn-primary{
+  color: var(--blue);
+  background: rgba(255,255,255,.92);
+}
+
+.btn-wa{
+  background: var(--wa);
+  color:#fff;
+}
+
+/* Info card (accordion content) */
+.info-card{
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.65);
+}
+
+.info-card h3{
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text); /* щоб не було синього */
+}
+
+.info-card{
+  color: var(--muted);
+}
+
+/* p + li однакові */
+.info-card p,
+.info-card li{
+  color: inherit;
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+/* bullets не фарбуємо окремо */
+.info-card .bullets{
+  color: inherit;        /* важливо */
+}
+
+/* жирний текст у info-card НЕ має свого кольору */
+.info-card strong,
+.info-card b{
+  color: inherit;
+  font-weight: 600;
+}
+
+/* було занадто загальне: .info-card img { ... } */
+
+/* стане безпечніше */
+.info-card img:not(.video-thumb):not(.yt-thumb){
+  width:100%;
+  display:block;
+  margin-top: 12px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+
+/* Form */
+.form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top: 10px;
+}
+
+.input{
+  width:100%;
+  height:46px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.60);
+  padding: 0 16px;
+  font-size: 15px;
+  outline:none;
+}
+
+.input::placeholder{ color:#9A9A9A; }
+
+.row{
+  display:flex;
+  gap:10px;
+}
+
+.hours-wrap{
+  position:relative;
+  flex:1;
+}
+
+.hours-controls{
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  gap:8px;
+}
+
+.mini{
+  width:36px;
+  height:30px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.06);
+  background: rgba(255,255,255,.9);
+  font-weight: 800;
+  cursor:pointer;
+}
+
+.note{
+  text-align:center;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+  margin-top: 6px;
+}
+
+/* Top bar (service pages) */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  margin: 6px 0 10px;
+}
+
+.back{
+  position:absolute;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.65);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  font-weight:800;
+}
+
+/* Accordion */
+.acc-btn{
+  width:100%;
+  height:44px;
+  border-radius:999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.65);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 15px;
+  cursor:pointer;
+
+  font-weight: 400;              /* закритий = тонший */
+  color: rgba(17,17,17,.80);
+
+  transition: transform .08s ease, background .2s ease, border-color .2s ease;
+}
+
+.acc-btn:active{ transform: scale(.99); }
+
+.acc-btn.is-active{
+  font-weight: 700;              /* активний = жирний */
+  color: rgba(17,17,17,1);
+  background: rgba(255,255,255,.92);
+  border-color: rgba(0,0,0,.18);
+
+  display:none;                  /* щоб не було “кнопка + розшифровка” */
+}
+
+.acc-panel{
+  display:none;
+  margin-top: 0;
+  cursor:pointer;                /* клік по всьому блоку закриває */
+}
+
+.acc-panel.is-open{
+  display:block;
+}
+.stickyinner .btn{
+  font-size: 15px;
+  white-space: nowrap;
+}
+/* Slider (lightweight) */
+.slider{
+  position: relative;
+  margin-top: 12px;
+}
+
+.slider-track{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior:smooth;
+  padding: 4px 2px 6px;
+  border-radius: 18px;
+}
+
+.slider-track::-webkit-scrollbar{ display:none; }
+
+.slide{
+  flex: 0 0 88%;
+  scroll-snap-align:center;
+  margin:0;
+}
+
+.slide img{
+  width:100%;
+  aspect-ratio: 1 / 1;    /* завжди квадратний блок */
+  height: auto;
+  object-fit: contain;    /* не обрізати */
+  border-radius: 18px;
+  display:block;
+  background:#EEE;
+}
+
+
+.slider-btn{
+  position:absolute;
+  top:50%;
+  transform: translateY(-50%);
+  width:38px;
+  height:38px;
+  border-radius:999px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 18px;
+  font-weight: 800;
+  cursor:pointer;
+  z-index: 2;
+}
+
+.slider-btn.prev{ left: 8px; }
+.slider-btn.next{ right: 8px; }
+
+@media (max-width: 360px){
+  .slide{ flex-basis: 92%; }
+  .slide img{ height: 210px; }
+}
+.video-box{
+  position: relative;
+  margin-top: 12px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #EEE;
+
+  aspect-ratio: 9 / 16; /* ширина 3, висота 4 */
+  display:block;
+  cursor:pointer;
+}
+
+.video-thumb{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  background:#EEE;
+}
+
+.video-play{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  width:56px;
+  height:56px;
+  border-radius:999px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.12);
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  font-weight:800;
+}
+
+.video-box iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+}
+
+
+.yt-thumb{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+.yt-play{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  width:56px;
+  height:56px;
+  border-radius:999px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.12);
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  font-weight:800;
+}
+
+/* ===== YouTube slider: make previews fill the slide ===== */
+[data-yt-slider] .slide{
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Stretch items so the card can take full height */
+[data-yt-slider] .slider-track{
+  align-items: stretch;
+}
+
+
+
+/* Make thumb fill the card */
+[data-yt-slider] .yt-thumb{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+}
+
+/* IMPORTANT: make preview image always fill container */
+[data-yt-slider] .yt-thumb{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;      /* прибирає сірі поля */
+}
+
+
+
+/* if your slide had padding/rounded background from photo sliders */
+[data-yt-slider] .slide{
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+/* ===== FIX: enough bottom space for fixed sticky bar ===== */
+
+:root{ --sticky-h: 20px; }
+
+/* щоб якірні переходи/фокус не ховалися під stickybar */
+html{
+  scroll-padding-bottom: calc(var(--sticky-h) + env(safe-area-inset-bottom));
+}
+/* ===== YouTube Shorts: no grey background, fill 9:16 (Filtros + Videos) ===== */
+
+/* контейнер одного відео/прев'ю */
+[data-yt-slider] .yt-card,
+.yt-card{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 18px;
+  overflow: hidden;
+  background: transparent !important;
+  line-height: 0;     /* прибирає “порожню смугу” від line-height */
+  font-size: 0;
+}
+
+/* прев'ю-картинка або iframe повинні заповнювати контейнер */
+[data-yt-slider] .yt-card img,
+[data-yt-slider] .yt-card iframe,
+.yt-card img,
+.yt-card iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* головне: cover, щоб не було сірих полів */
+[data-yt-slider] .yt-card img,
+.yt-card img{
+  object-fit: cover;
+}
+.bottom-spacer{
+  height: calc(var(--sticky-h) + 20px + env(safe-area-inset-bottom));
+}

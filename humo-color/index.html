@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0c10">
+  <title>Humo de color | Party BCN</title>
+  <meta name="description" content="Humo de color para fotos y entradas. Pida presupuesto.">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <b><a href="/">Party BCN</a></b>
+        <span>Humo de color</span>
+      </div>
+      <div class="pill"><a href="/">Volver</a></div>
+    </div>
+
+    <section class="hero">
+      <h1>Humo de color</h1>
+      <p>Perfecto para sesión de fotos, entrada o un momento sorpresa. Queda brutal.</p>
+    </section>
+
+    <div class="section-title">Incluye</div>
+    <section class="card">
+      <p>• Selección de colores<br>• Montaje y coordinación del momento<br>• Recomendaciones para foto/vídeo</p>
+      <div class="hr"></div>
+      <p class="small">Dígame fecha + ciudad y le digo opciones y precio.</p>
+    </section>
+
+    <div class="section-title">Pedir presupuesto</div>
+    <section class="card">
+      <form id="lead-service" class="form" data-service="Humo de color">
+        <input type="text" name="company" autocomplete="off" style="display:none" tabindex="-1">
+        <div class="field"><label>Nombre</label><input name="name" required></div>
+        <div class="field"><label>Fecha del evento</label><input name="date" type="date" required></div>
+        <div class="field"><label>Ciudad / Lugar</label><input name="city" required></div>
+        <div class="field"><label>WhatsApp / Teléfono</label><input name="phone" required></div>
+        <div class="field"><label>Comentario (opcional)</label><textarea name="note"></textarea></div>
+        <div class="btnrow">
+          <button class="btn primary" type="submit">Pedir presupuesto</button>
+          <a class="btn wa" data-wa="lead-service" href="#">WhatsApp</a>
+        </div>
+      </form>
+    </section>
+
+    <div class="footer"><a href="/">← Volver al catálogo</a></div>
+  </div>
+
+  <div class="stickybar">
+    <div class="stickyinner">
+      <a class="btn primary" href="#lead-service">Calcular precio</a>
+      <a class="btn wa" data-wa="global" href="#">WhatsApp</a>
+    </div>
+  </div>
+
+  <script src="/assets/js/form.js" defer></script>
+</body>
+</html>
