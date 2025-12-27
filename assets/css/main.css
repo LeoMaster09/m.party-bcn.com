@@ -148,6 +148,7 @@ a{ color:inherit; text-decoration:none; }
   border-radius: var(--radius);
   border: 1px solid var(--border);
   background: rgba(255,255,255,.65);
+  color: var(--muted);
 }
 
 .info-card h3{
@@ -155,10 +156,6 @@ a{ color:inherit; text-decoration:none; }
   font-size: 17px;
   font-weight: 700;
   color: var(--text); /* щоб не було синього */
-}
-
-.info-card{
-  color: var(--muted);
 }
 
 /* p + li однакові */
@@ -461,37 +458,17 @@ a{ color:inherit; text-decoration:none; }
   border: 0 !important;
   border-radius: 0 !important;
 }
-
 /* Stretch items so the card can take full height */
 [data-yt-slider] .slider-track{
   align-items: stretch;
 }
 
-
-
 /* Make thumb fill the card */
 [data-yt-slider] .yt-thumb{
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover;
-  display: block;
-}
-
-/* IMPORTANT: make preview image always fill container */
-[data-yt-slider] .yt-thumb{
-  width: 100%;
-  height: 100%;
   display: block;
   object-fit: cover;      /* прибирає сірі поля */
-}
-
-
-
-/* if your slide had padding/rounded background from photo sliders */
-[data-yt-slider] .slide{
-  padding: 0 !important;
-  background: transparent !important;
-  border: 0 !important;
 }
 /* ===== FIX: enough bottom space for fixed sticky bar ===== */
 
